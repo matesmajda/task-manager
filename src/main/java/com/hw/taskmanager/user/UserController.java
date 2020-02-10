@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @AllArgsConstructor
@@ -19,7 +18,7 @@ public class UserController {
 
     private UserService userService;
 
-    @GetMapping(value = "/")
+    @GetMapping
     List<User> getAllUser() {
         return userService.getAllUsers();
     }
@@ -29,7 +28,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping(path = "/")
+    @PostMapping
     User createUser(@RequestBody @Valid CreateUserRequest request) {
         return userService.createUser(request);
     }

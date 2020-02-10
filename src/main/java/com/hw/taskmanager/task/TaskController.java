@@ -22,12 +22,12 @@ public class TaskController {
         return taskService.getTaskForUser(userId, taskId);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Task> getTaskForUser(@PathVariable Long userId) {
         return taskService.getAllTasksForUser(userId);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public Task createTask(@PathVariable Long userId, @RequestBody @Valid CreateTaskRequest request) {
         return taskService.createTask(userId, request);
     }
