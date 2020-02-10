@@ -1,6 +1,6 @@
 # task-manager
 
-This project is a simple task manager.
+This project is a simple task manager. I followed the YAGNI principle during development, so there are lots of possible improvements of the software. I included some of them in the last section of this README.
 
 ### Requirements
 
@@ -29,3 +29,6 @@ You can replace gradle commands with `gradlew.bat` in Windows or `./gradlew` in 
 - Create integration tests
 - Handling DB exceptions
 - Improve concurrency control: add locking to entities
+- Make entities soft deletables
+- Add JPA auditing to entities
+- Add input sanitization to prevent XSS attacks
