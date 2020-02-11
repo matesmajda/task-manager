@@ -24,6 +24,9 @@ public class Task {
     private String description;
     private Date dateTime;
 
+    @Enumerated(value = EnumType.STRING)
+    private TaskStatus status;
+
     @JsonIgnore
     @ManyToOne
     private User user;

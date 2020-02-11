@@ -32,6 +32,7 @@ public class TaskService {
                 .description(request.getDescription())
                 .dateTime(request.getDateTime())
                 .user(user)
+                .status(TaskStatus.NEW)
                 .build();
 
         return taskRepository.save(task);
@@ -39,9 +40,20 @@ public class TaskService {
 
     public Task updateTask(Long userId, Long taskId, UpdateTaskRequest request) {
         Task task = getTaskForUser(userId, taskId);
-        task.setDescription(request.getDescription());
-        task.setName(request.getName());
+        mergeProperties(request, task);
         return taskRepository.save(task);
+    }
+
+    private void mergeProperties(UpdateTaskRequest request, Task task) {
+        if(request.getName() != null) {
+            task.setName(request.getName());
+        }
+        if(request.getDescription() != null) {
+            task.setDescription(request.getDescription());
+        }
+        if(request.getStatus() != null) {
+            task.setStatus(request.getStatus());
+        }
     }
 
     public void deleteTaskById(Long userId, Long taskId) {

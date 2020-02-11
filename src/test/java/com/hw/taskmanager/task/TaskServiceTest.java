@@ -68,7 +68,7 @@ class TaskServiceTest {
         long userId = 2L;
         User user = User.builder().id(userId).build();
         Date date= new Date();
-        Task task = Task.builder().name("n").description("d").dateTime(date).user(user).build();
+        Task task = Task.builder().name("n").description("d").dateTime(date).user(user).status(TaskStatus.NEW).build();
         CreateTaskRequest request = new CreateTaskRequest("n", "d", date);
 
         when(userService.getUserById(userId)).thenReturn(user);
@@ -89,8 +89,8 @@ class TaskServiceTest {
         long taskId = 1L;
         Task task = Task.builder().name("n").description("d").build();
 
-        Task updatedTask = Task.builder().name("n2").description("d2").build();
-        UpdateTaskRequest request = new UpdateTaskRequest("n2", "d2");
+        Task updatedTask = Task.builder().name("n2").description("d2").status(TaskStatus.DONE).build();
+        UpdateTaskRequest request = new UpdateTaskRequest("n2", "d2", TaskStatus.DONE);
 
         when(taskRepository.findByUserIdAndId(userId, taskId)).thenReturn(Optional.of(task));
 

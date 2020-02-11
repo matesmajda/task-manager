@@ -1,5 +1,6 @@
 package com.hw.taskmanager.task.request;
 
+import com.hw.taskmanager.task.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class UpdateTaskRequest {
 
-    @NotNull
     @Length(min = 1, max = 100)
     private String name;
 
-    @NotNull
     @Length(min = 1, max = 100)
     private String description;
+
+    private TaskStatus status;
 }
