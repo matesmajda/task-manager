@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import java.net.BindException;
-
 @ControllerAdvice
 @Slf4j
 @Order(Ordered.HIGHEST_PRECEDENCE)

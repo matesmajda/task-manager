@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
@@ -12,7 +11,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,7 +42,7 @@ class ExpiredTaskCompleterJobTest {
         verify(taskRepository).saveAll(expectedTasks);
     }
 
-    private Task newTask(long l, TaskStatus done) {
-        return Task.builder().id(l).status(done).build();
+    private Task newTask(long l, TaskStatus status) {
+        return Task.builder().id(l).status(status).build();
     }
 }

@@ -12,7 +12,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'jacoco'
-    id 'pmd'}
+    id 'pmd'
+}
 
 group 'com.hw'
 version '1.0-SNAPSHOT'
@@ -44,6 +45,5 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
